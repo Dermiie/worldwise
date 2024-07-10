@@ -60,6 +60,9 @@ function CitiesProvider({ children }) {
           isLoading: false,
           error: action.payload,
         };
+
+      default:
+        throw new Error('Unknown error');
     }
   }
 
@@ -86,7 +89,7 @@ function CitiesProvider({ children }) {
   );
 
   async function fetchCurrentCity(id) {
-    if (currentCity.id === Number(id)) return;
+    if (Number(id) === currentCity.id) return;
 
     dispatch({ type: 'loading' });
     try {
