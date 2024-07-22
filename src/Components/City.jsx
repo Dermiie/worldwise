@@ -14,7 +14,7 @@ function City() {
     function () {
       fetchCurrentCity(id);
     },
-    [id]
+    [id, fetchCurrentCity]
   );
 
   const formatDate = (date) =>
